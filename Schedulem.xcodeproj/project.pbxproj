@@ -11,6 +11,8 @@
 		1C2D56A8222C295D0089B8F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56A7222C295D0089B8F7 /* ViewController.swift */; };
 		1C2D56AA222C295E0089B8F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2D56A9222C295E0089B8F7 /* Assets.xcassets */; };
 		1C2D56AD222C295E0089B8F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2D56AB222C295E0089B8F7 /* Main.storyboard */; };
+		1C2D56B6222C2A520089B8F7 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56B5222C2A520089B8F7 /* Student.swift */; };
+		1C2D56B8222C2A650089B8F7 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56B7222C2A650089B8F7 /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		1C2D56AC222C295E0089B8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C2D56AE222C295E0089B8F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2D56AF222C295E0089B8F7 /* Schedulem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Schedulem.entitlements; sourceTree = "<group>"; };
+		1C2D56B5222C2A520089B8F7 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		1C2D56B7222C2A650089B8F7 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				1C2D56AB222C295E0089B8F7 /* Main.storyboard */,
 				1C2D56AE222C295E0089B8F7 /* Info.plist */,
 				1C2D56AF222C295E0089B8F7 /* Schedulem.entitlements */,
+				1C2D56B5222C2A520089B8F7 /* Student.swift */,
+				1C2D56B7222C2A650089B8F7 /* Assignment.swift */,
 			);
 			path = Schedulem;
 			sourceTree = "<group>";
@@ -133,7 +139,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2D56B8222C2A650089B8F7 /* Assignment.swift in Sources */,
 				1C2D56A8222C295D0089B8F7 /* ViewController.swift in Sources */,
+				1C2D56B6222C2A520089B8F7 /* Student.swift in Sources */,
 				1C2D56A6222C295D0089B8F7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
