@@ -8,17 +8,19 @@
 
 import Cocoa
 
-class Student
+class Student : NSObject
 {
-	var name : String
+	@objc var name : String
 	var male : Bool
+	var bibleStudyOK : Bool = false
+	var talkOK : Bool = false
 	var lastAssignment : Date? = nil
 	var nextAssignment : Date? = nil
 	var lastHH : Date? = nil
 	var nextHH : Date? = nil
 	var points : Int = 0
 	
-	// TIMO>> todo: implement this later
+	// TIMO>> TODO: implement this later
 //	var blacklist : Array? = [nil]
 //	var family : Array? = [nil]
 
