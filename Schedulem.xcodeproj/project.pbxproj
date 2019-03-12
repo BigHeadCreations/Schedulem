@@ -13,6 +13,7 @@
 		1C2D56AD222C295E0089B8F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2D56AB222C295E0089B8F7 /* Main.storyboard */; };
 		1C2D56B6222C2A520089B8F7 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56B5222C2A520089B8F7 /* Student.swift */; };
 		1C2D56B8222C2A650089B8F7 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56B7222C2A650089B8F7 /* Assignment.swift */; };
+		1C4808552237B60200EE6782 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C4808542237B60200EE6782 /* README.md */; };
 		1CE2817F222DCE4A0047ACB1 /* StudentViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */; };
 		1CE28182222DCFBC0047ACB1 /* AssignmentViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		1C2D56AF222C295E0089B8F7 /* Schedulem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Schedulem.entitlements; sourceTree = "<group>"; };
 		1C2D56B5222C2A520089B8F7 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		1C2D56B7222C2A650089B8F7 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		1C4808542237B60200EE6782 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewCon.swift; sourceTree = "<group>"; };
 		1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewCon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +49,7 @@
 			children = (
 				1C2D56A4222C295D0089B8F7 /* Schedulem */,
 				1C2D56A3222C295D0089B8F7 /* Products */,
+				1C4808542237B60200EE6782 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4808552237B60200EE6782 /* README.md in Resources */,
 				1C2D56AA222C295E0089B8F7 /* Assets.xcassets in Resources */,
 				1C2D56AD222C295E0089B8F7 /* Main.storyboard in Resources */,
 			);

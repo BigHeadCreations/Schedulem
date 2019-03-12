@@ -8,6 +8,8 @@
 
 import Cocoa
 
+// TIMO>> this is bad. Don't use global singletons. Use the segue method instead. See:
+// TIMO>> https://stackoverflow.com/a/29737851/1372145
 var viewController : ViewController? = nil
 
 class ViewController: NSViewController {
@@ -18,9 +20,9 @@ class ViewController: NSViewController {
 	override func viewDidLoad()
 	{
 		// init a few demo students
-		let student1 = Student.init(name: "timothy", male: true)
-		let student2 = Student.init(name: "jamie", male: false)
-		let student3 = Student.init(name: "daniel", male: true)
+		let student1 = Student.init(name: "Timothy Pearson", male: true)
+		let student2 = Student.init(name: "Jamie Pearson", male: false)
+		let student3 = Student.init(name: "Daniel Bryant", male: true)
 		
 		students.add(student1)
 		students.add(student2)
