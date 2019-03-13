@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewCon.swift
 //  Schedulem
 //
 //  Created by Timothy Pearson on 3/3/19.
@@ -8,11 +8,7 @@
 
 import Cocoa
 
-// TIMO>> this is bad. Don't use global singletons. Use the segue method instead. See:
-// TIMO>> https://stackoverflow.com/a/29737851/1372145
-var viewController : ViewController? = nil
-
-class ViewController: NSViewController {
+class MainViewCon: NSViewController {
 
 	@IBOutlet var studentsArrayCon : NSArrayController!
 	@objc var students : NSMutableArray = NSMutableArray()
@@ -30,7 +26,6 @@ class ViewController: NSViewController {
 		
 		super.viewDidLoad()
 		
-		viewController = self
 		studentsArrayCon.bind(NSBindingName("contentArray"), to: self, withKeyPath: "students")
 
 	}

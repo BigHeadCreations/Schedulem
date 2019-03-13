@@ -20,6 +20,9 @@ class Student : NSObject
 	var nextHH : Date? = nil
 	var points : Int = 0
 	
+	// for bindings
+	@objc var mf : NSString?
+	
 	// TIMO>> TODO: implement this later
 //	var blacklist : Array? = [nil]
 //	var family : Array? = [nil]
@@ -28,6 +31,8 @@ class Student : NSObject
 	{
 		self.name = name
 		self.male = male
+		
+		self.mf = (self.male == true) ? "male" : "female"
 	}
 	
 }

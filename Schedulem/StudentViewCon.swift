@@ -36,9 +36,8 @@ class StudentViewCon: NSViewController {
 	
 	@IBAction func save(_ sender: AnyObject)
 	{
-		// TIMO>> TODO: this is not a good way to pass data around. Don't use a singleton. Use the segue
 		let student = Student.init(name: "TESTING", male: true)
-		if let vc = viewController
+		if let vc = self.presentingViewController as? MainViewCon
 		{
 			vc.willChangeValue(forKey: "students")
 			vc.students.add(student)
@@ -51,7 +50,7 @@ class StudentViewCon: NSViewController {
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		// Do view setup here.
+		maleBtn.state = NSControl.StateValue.on		
 	}
 
 

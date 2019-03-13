@@ -701,10 +701,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="-12"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Con-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Schedulem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewCon" customModule="Schedulem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -780,6 +780,9 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <connections>
+                                                        <binding destination="Wjh-c7-Sal" name="value" keyPath="arrangedObjects.mf" id="SyJ-MX-hhK"/>
+                                                    </connections>
                                                 </tableColumn>
                                                 <tableColumn width="118" minWidth="10" maxWidth="3.4028234663852886e+38" id="TbN-RD-T4j">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Points">
