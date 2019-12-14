@@ -16,9 +16,9 @@ class MainViewCon: NSViewController {
 	override func viewDidLoad()
 	{
 		// init a few demo students
-		let student1 = Student.init(name: "Timothy Pearson", male: true)
-		let student2 = Student.init(name: "Jamie Pearson", male: false)
-		let student3 = Student.init(name: "Daniel Bryant", male: true)
+		let student1 = Student.init(name: "Timothy Pearson", sex: .male)
+		let student2 = Student.init(name: "Jamie Pearson", sex: .female)
+		let student3 = Student.init(name: "Daniel Bryant", sex: .male)
 		
 		students.add(student1)
 		students.add(student2)

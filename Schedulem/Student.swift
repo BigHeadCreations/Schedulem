@@ -10,29 +10,31 @@ import Cocoa
 
 class Student : NSObject
 {
+	enum Sex
+	{
+		case male
+		case female
+	}
+	
 	@objc var name : String
-	var male : Bool
+	var sex : Sex = .male
 	var bibleStudyOK : Bool = false
 	var talkOK : Bool = false
 	var lastAssignment : Date? = nil
 	var nextAssignment : Date? = nil
 	var lastHH : Date? = nil
 	var nextHH : Date? = nil
-	var points : Int = 0
-	
-	// for bindings
-	@objc var mf : NSString?
+	@objc var points : Int = 0
 	
 	// TIMO>> TODO: implement this later
-//	var blacklist : Array? = [nil]
-//	var family : Array? = [nil]
+//	var blacklist : [Student?] = []
+//	var family : [Student?] = []
 
-	init(name: String, male: Bool)
+	init(name: String, sex: Sex)
 	{
 		self.name = name
-		self.male = male
+		self.sex = sex
 		
-		self.mf = (self.male == true) ? "male" : "female"
 	}
 	
 }

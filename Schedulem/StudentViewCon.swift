@@ -8,51 +8,67 @@
 
 import Cocoa
 
-class StudentViewCon: NSViewController {
-	
+class StudentViewCon: NSViewController
+{
 	@IBOutlet var maleBtn : NSButton!
 	@IBOutlet var femaleBtn : NSButton!
 	@IBOutlet var name : NSTextField!
-	
-	@IBAction func maleBtnPressed(_ sender: AnyObject)
+	var student : Student?
+
+
+	override func viewDidLoad()
 	{
+		super.viewDidLoad()
+		student = Student.init(name: "TESTING", sex: .male)
 		maleBtn.state = NSControl.StateValue.on
-		
-		if(femaleBtn.state == NSControl.StateValue.on)
-		{
-			femaleBtn.state = NSControl.StateValue.off
-		}
 	}
-
-	@IBAction func femaleBtnPressed(_ sender: AnyObject)
+	
+	@IBAction func sexBtnPressed(_ sender: NSButton)
 	{
-		femaleBtn.state = NSControl.StateValue.on
-
-		if(maleBtn.state == NSControl.StateValue.on)
+		if sender.tag == 0  // male
 		{
+			maleBtn.state = NSControl.StateValue.on
+			femaleBtn.state = NSControl.StateValue.off
+			
+			student?.sex = .male
+		}
+		
+		if sender.tag == 1 // female
+		{
+			femaleBtn.state = NSControl.StateValue.on
 			maleBtn.state = NSControl.StateValue.off
+			
+			student?.sex = .female
 		}
 	}
+	
 	
 	@IBAction func save(_ sender: AnyObject)
 	{
-		let student = Student.init(name: "TESTING", male: true)
-		if let vc = self.presentingViewController as? MainViewCon
+		if let vc = self.presentingViewController as? MainViewCon, let student = student
 		{
+			if name.cell!.stringValue.count > 0  
+			{
+				student.name = name.cell!.stringValue
+			}
+			else
+			{
+				print("show warning alert")
+				return
+			}
+			
 			vc.willChangeValue(forKey: "students")
 			vc.students.add(student)
 			vc.didChangeValue(forKey: "students")
 		}
 		
+		student = nil
 		dismiss(self)
 	}
-
-	override func viewDidLoad()
+	
+	@IBAction func cancel(_ sender: AnyObject)
 	{
-		super.viewDidLoad()
-		maleBtn.state = NSControl.StateValue.on		
+		student = nil
+		dismiss(self)		
 	}
-
-
-
 }
