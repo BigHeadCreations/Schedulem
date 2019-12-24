@@ -10,13 +10,22 @@ import Cocoa
 
 class Student : NSObject
 {
-	enum Sex
+	enum Sex: CustomStringConvertible
 	{
 		case male
 		case female
+		
+		var description: String
+		{
+			switch self
+			{
+			case .male: return "male"
+			case .female: return "female"
+			}
+		}
 	}
 	
-	@objc var name : String
+	var name : String
 	var sex : Sex = .male
 	var bibleStudyOK : Bool = false
 	var talkOK : Bool = false
@@ -24,7 +33,7 @@ class Student : NSObject
 	var nextAssignment : Date? = nil
 	var lastHH : Date? = nil
 	var nextHH : Date? = nil
-	@objc var points : Int = 0
+	var points : Int = 0
 	
 	// TIMO>> TODO: implement this later
 //	var blacklist : [Student?] = []

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -753,7 +753,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="91" minWidth="40" maxWidth="1000" id="Kcu-he-BH9">
+                                                <tableColumn identifier="name" width="91" minWidth="40" maxWidth="1000" id="Kcu-he-BH9">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -765,11 +765,8 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                    <connections>
-                                                        <binding destination="Wjh-c7-Sal" name="value" keyPath="arrangedObjects.name" id="hnG-BU-tqV"/>
-                                                    </connections>
                                                 </tableColumn>
-                                                <tableColumn width="72" minWidth="40" maxWidth="1000" id="ART-Jw-A4L">
+                                                <tableColumn identifier="sex" width="72" minWidth="40" maxWidth="1000" id="ART-Jw-A4L">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="male/female">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -782,7 +779,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn width="107" minWidth="10" maxWidth="3.4028234663852886e+38" id="TbN-RD-T4j">
+                                                <tableColumn identifier="points" width="107" minWidth="10" maxWidth="3.4028234663852886e+38" id="TbN-RD-T4j">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Points">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -794,11 +791,8 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                    <connections>
-                                                        <binding destination="Wjh-c7-Sal" name="value" keyPath="arrangedObjects.points" id="wS8-nF-9cO"/>
-                                                    </connections>
                                                 </tableColumn>
-                                                <tableColumn width="61" minWidth="10" maxWidth="3.4028234663852886e+38" id="fer-Mu-CB2">
+                                                <tableColumn identifier="edit" width="61" minWidth="10" maxWidth="3.4028234663852886e+38" id="fer-Mu-CB2">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Edit">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -810,7 +804,7 @@
                                                     </buttonCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="NgM-cO-YMv">
+                                                <tableColumn identifier="delete" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="NgM-cO-YMv">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Delete">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -951,6 +945,7 @@
                     </view>
                     <connections>
                         <outlet property="studentsArrayCon" destination="Wjh-c7-Sal" id="ZQn-42-EgG"/>
+                        <outlet property="studentsTable" destination="c84-tc-Cui" id="gCl-Uf-tsp"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -959,7 +954,6 @@
                         <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.students" id="fua-hy-ypX"/>
                     </connections>
                 </arrayController>
-                <arrayController id="IBk-dQ-M9M"/>
             </objects>
             <point key="canvasLocation" x="75" y="951"/>
         </scene>

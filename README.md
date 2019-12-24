@@ -1,5 +1,6 @@
 
-DONE - Add in edit and delete buttons into the table rows
+
+Move on to SQLite implementation
 
 - Finish up StudentViewCon
 - Add persistence layer for the data (SQLite)

@@ -8,21 +8,24 @@
 
 import Cocoa
 
-class MainViewCon: NSViewController {
-
+class MainViewCon: NSViewController, NSTableViewDataSource
+{
 	@IBOutlet var studentsArrayCon : NSArrayController!
-	@objc var students : NSMutableArray = NSMutableArray()
+	@IBOutlet var studentsTable : NSTableView!
+	@objc var students : [Student] = []
 
 	override func viewDidLoad()
 	{
+		studentsTable.dataSource = self
+		
 		// init a few demo students
 		let student1 = Student.init(name: "Timothy Pearson", sex: .male)
 		let student2 = Student.init(name: "Jamie Pearson", sex: .female)
 		let student3 = Student.init(name: "Daniel Bryant", sex: .male)
 		
-		students.add(student1)
-		students.add(student2)
-		students.add(student3)
+		students.append(student1)
+		students.append(student2)
+		students.append(student3)
 		
 		super.viewDidLoad()
 		
@@ -30,10 +33,36 @@ class MainViewCon: NSViewController {
 
 	}
 
+	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any?
+	{
+		guard let column = tableColumn else { return nil }
+		switch column.identifier.rawValue
+		{
+		case "name":
+			return students[row].name
+			
+		case "sex":
+			return students[row].sex
+		
+		case "points":
+			return students[row].points
+			
+		default:
+			return nil
+			
+		}
+	}
+
+	func numberOfRows(in tableView: NSTableView) -> Int
+	{
+		return students.count
+	}
+
 	override var representedObject: Any?
 	{
-		didSet {
-		// Update the view, if already loaded.
+		didSet 
+		{
+			// Update the view, if already loaded.
 		}
 	}
 

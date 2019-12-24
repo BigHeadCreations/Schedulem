@@ -21,6 +21,7 @@ class StudentViewCon: NSViewController
 		super.viewDidLoad()
 		student = Student.init(name: "TESTING", sex: .male)
 		maleBtn.state = NSControl.StateValue.on
+		femaleBtn.state = NSControl.StateValue.off
 	}
 	
 	@IBAction func sexBtnPressed(_ sender: NSButton)
@@ -53,13 +54,13 @@ class StudentViewCon: NSViewController
 			}
 			else
 			{
+				// TODO: show alert
 				print("show warning alert")
 				return
 			}
 			
-			vc.willChangeValue(forKey: "students")
-			vc.students.add(student)
-			vc.didChangeValue(forKey: "students")
+			vc.students.append(student)
+			vc.studentsTable.reloadData()
 		}
 		
 		student = nil
