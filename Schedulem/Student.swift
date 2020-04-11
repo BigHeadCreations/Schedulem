@@ -26,6 +26,7 @@ class Student : NSObject
 	}
 	
 	var name : String
+	var uuid : UUID
 	var sex : Sex = .male
 	var bibleStudyOK : Bool = false
 	var talkOK : Bool = false
@@ -43,6 +44,8 @@ class Student : NSObject
 	{
 		self.name = name
 		self.sex = sex
+		
+		self.uuid = UUID.init()
 		
 	}
 	
