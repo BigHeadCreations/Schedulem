@@ -54,8 +54,14 @@ class StudentViewCon: NSViewController
 			}
 			else
 			{
-				// TODO: show alert
-				print("show warning alert")
+				if let window = winCon.window
+				{
+					let alert : NSAlert = NSAlert.init()
+					alert.alertStyle = NSAlert.Style.critical
+					alert.messageText = "Name can't be empty"
+					alert.addButton(withTitle: "Ok")
+					alert.beginSheetModal(for: window, completionHandler: nil)
+				}
 				return
 			}
 			

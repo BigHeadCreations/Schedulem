@@ -19,7 +19,7 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 	{
 		studentsTable.dataSource = self
 		
-		addDummyData()
+		addDummyData(true)
 		
 		super.viewDidLoad()
 		
@@ -61,7 +61,7 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 		}
 	}
 
-	func addDummyData()
+	@IBAction func addDummyData(_ sender: Any)
 	{
 		// init a few demo students
 		let student1 = Student.init(name: "Timothy Pearson", sex: .male)
@@ -73,6 +73,9 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 		students.append(student2)
 		students.append(student3)
 		students.append(student4)
+		
+		studentsTable.reloadData()
+
 	}
 	
 	// TODO: pull this out into its own Model

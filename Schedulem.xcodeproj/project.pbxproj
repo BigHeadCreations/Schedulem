@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C233F4B244376B600608FFF /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C233F4A244376B600608FFF /* WindowController.swift */; };
 		1C2D56A6222C295D0089B8F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56A5222C295D0089B8F7 /* AppDelegate.swift */; };
 		1C2D56A8222C295D0089B8F7 /* MainViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D56A7222C295D0089B8F7 /* MainViewCon.swift */; };
 		1C2D56AA222C295E0089B8F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2D56A9222C295E0089B8F7 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C233F4A244376B600608FFF /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		1C2D56A2222C295D0089B8F7 /* Schedulem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedulem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C2D56A5222C295D0089B8F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C2D56A7222C295D0089B8F7 /* MainViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCon.swift; sourceTree = "<group>"; };
@@ -66,16 +68,17 @@
 		1C2D56A4222C295D0089B8F7 /* Schedulem */ = {
 			isa = PBXGroup;
 			children = (
+				1C2D56AF222C295E0089B8F7 /* Schedulem.entitlements */,
+				1C2D56AE222C295E0089B8F7 /* Info.plist */,
 				1C2D56A5222C295D0089B8F7 /* AppDelegate.swift */,
+				1C2D56B7222C2A650089B8F7 /* Assignment.swift */,
+				1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */,
 				1C2D56A7222C295D0089B8F7 /* MainViewCon.swift */,
+				1C2D56B5222C2A520089B8F7 /* Student.swift */,
+				1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */,
+				1C233F4A244376B600608FFF /* WindowController.swift */,
 				1C2D56A9222C295E0089B8F7 /* Assets.xcassets */,
 				1C2D56AB222C295E0089B8F7 /* Main.storyboard */,
-				1C2D56AE222C295E0089B8F7 /* Info.plist */,
-				1C2D56AF222C295E0089B8F7 /* Schedulem.entitlements */,
-				1C2D56B5222C2A520089B8F7 /* Student.swift */,
-				1C2D56B7222C2A650089B8F7 /* Assignment.swift */,
-				1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */,
-				1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */,
 			);
 			path = Schedulem;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				1C2D56B8222C2A650089B8F7 /* Assignment.swift in Sources */,
 				1C2D56A8222C295D0089B8F7 /* MainViewCon.swift in Sources */,
 				1C2D56B6222C2A520089B8F7 /* Student.swift in Sources */,
+				1C233F4B244376B600608FFF /* WindowController.swift in Sources */,
 				1C2D56A6222C295D0089B8F7 /* AppDelegate.swift in Sources */,
 				1CE28182222DCFBC0047ACB1 /* AssignmentViewCon.swift in Sources */,
 				1CE2817F222DCE4A0047ACB1 /* StudentViewCon.swift in Sources */,
@@ -231,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -286,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
