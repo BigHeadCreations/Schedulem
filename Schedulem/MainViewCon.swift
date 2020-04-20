@@ -14,6 +14,7 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 	@IBOutlet var studentsArrayCon : NSArrayController!
 	@IBOutlet var studentsTable : NSTableView!
 	@objc var students : [Student] = []
+	var editClicked : Bool = false
 
 	override func viewDidLoad()
 	{
@@ -125,10 +126,21 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 	
 	@IBAction func editClicked(_ sender: Any)
 	{
-		print("edit clicked")
-		
-		// TODO: load edit window
+		editClicked = true // TODO: can I get rid of this bool and achieve this another way?
+		self.performSegue(withIdentifier: "mainToStudentSegue", sender: self)
 	}
+	
+	override func prepare(for segue: NSStoryboardSegue, sender: Any?)
+	{
+		if(segue.identifier == "mainToStudentSegue" && editClicked)
+		{
+			editClicked = false
+			let student = students[studentsTable.clickedRow]
+			let studentView : StudentViewCon = segue.destinationController as! StudentViewCon
+			studentView.student = student
+		}
+	}
+
 	
 
 	override var representedObject: Any?

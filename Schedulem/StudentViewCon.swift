@@ -13,20 +13,46 @@ class StudentViewCon: NSViewController
 	@IBOutlet var maleBtn : NSButton!
 	@IBOutlet var femaleBtn : NSButton!
 	@IBOutlet var name : NSTextField!
+	@IBOutlet var windowLbl : NSTextField!
 	var student : Student?
+	var editing : Bool = false
 
 
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		student = Student.init(name: "TESTING", sex: .male)
-		maleBtn.state = NSControl.StateValue.on
-		femaleBtn.state = NSControl.StateValue.off
+
+		if let student = student // editing an existing student
+		{
+			editing = true
+			windowLbl.stringValue = "Editing a Student..."
+			name.cell?.stringValue = student.name
+			
+			if(student.sex == .male)
+			{
+				maleBtn.state = NSControl.StateValue.on
+				femaleBtn.state = NSControl.StateValue.off
+			}
+			else
+			{
+				maleBtn.state = NSControl.StateValue.off
+				femaleBtn.state = NSControl.StateValue.on
+			}
+		}
+		else // creating a new student
+		{
+			editing = false
+			windowLbl.stringValue = "Add a Student"
+
+			student = Student.init(name: "TESTING", sex: .male)
+			maleBtn.state = NSControl.StateValue.on
+			femaleBtn.state = NSControl.StateValue.off
+		}
 	}
 	
 	@IBAction func sexBtnPressed(_ sender: NSButton)
 	{
-		if sender.tag == 0  // male
+		if(sender.tag == 0)  // male
 		{
 			maleBtn.state = NSControl.StateValue.on
 			femaleBtn.state = NSControl.StateValue.off
@@ -34,7 +60,7 @@ class StudentViewCon: NSViewController
 			student?.sex = .male
 		}
 		
-		if sender.tag == 1 // female
+		if(sender.tag == 1) // female
 		{
 			femaleBtn.state = NSControl.StateValue.on
 			maleBtn.state = NSControl.StateValue.off
@@ -48,7 +74,7 @@ class StudentViewCon: NSViewController
 	{
 		if let vc = self.presentingViewController as? MainViewCon, let student = student
 		{
-			if name.cell!.stringValue.count > 0  
+			if(name.cell!.stringValue.count > 0)
 			{
 				student.name = name.cell!.stringValue
 			}
@@ -65,7 +91,11 @@ class StudentViewCon: NSViewController
 				return
 			}
 			
-			vc.students.append(student)
+			if(!editing)
+			{
+				vc.students.append(student)
+			}
+			
 			vc.studentsTable.reloadData()
 		}
 		
@@ -76,6 +106,6 @@ class StudentViewCon: NSViewController
 	@IBAction func cancel(_ sender: AnyObject)
 	{
 		student = nil
-		dismiss(self)		
+		dismiss(self)
 	}
 }

@@ -947,7 +947,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="Rs7-3g-b7B" kind="sheet" id="p2A-Qr-iBn"/>
+                                    <segue destination="Rs7-3g-b7B" kind="sheet" identifier="mainToStudentSegue" id="p2A-Qr-iBn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -974,15 +974,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-J0-wNk">
-                                <rect key="frame" x="180" y="263" width="91" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Add a Student" id="sZp-lm-P3m">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6SY-eV-SiH">
                                 <rect key="frame" x="46" y="46" width="82" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1048,12 +1039,22 @@ Gw
                                     <action selector="sexBtnPressed:" target="Rs7-3g-b7B" id="9KK-0H-QdK"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-J0-wNk">
+                                <rect key="frame" x="111" y="263" width="229" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Placeholder" id="sZp-lm-P3m">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="femaleBtn" destination="upI-Jc-eqA" id="G7a-7c-BZT"/>
                         <outlet property="maleBtn" destination="pDe-Nt-t0P" id="Mpm-jB-kKW"/>
                         <outlet property="name" destination="7T3-om-hu0" id="3Q8-0d-TUI"/>
+                        <outlet property="windowLbl" destination="5Xv-J0-wNk" id="eY3-me-a7e"/>
                     </connections>
                 </viewController>
                 <customObject id="rb4-yK-XbI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
