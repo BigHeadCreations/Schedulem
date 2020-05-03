@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SQLite
 
 class MainViewCon: NSViewController, NSTableViewDataSource
 {
@@ -18,48 +17,13 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 
 	override func viewDidLoad()
 	{
+		_ = DBMgr()
+		
 		studentsTable.dataSource = self
-		
 		addDummyData(true)
-		
 		super.viewDidLoad()
-		
 		studentsArrayCon.bind(NSBindingName("contentArray"), to: self, withKeyPath: "students")
 		
-		var fm : FileManager = FileManager.default
-		
-		do
-		{
-			let docsDirURL : URL = try fm.url(for: FileManager.SearchPathDirectory.documentDirectory,
-												in: FileManager.SearchPathDomainMask.userDomainMask,
-												appropriateFor: nil,
-												create: true)
-												
-			let sqlURL : URL = docsDirURL.appendingPathComponent("db.sqlite3", isDirectory: false)
-			let db = try Connection(sqlURL.absoluteString)
-			print("docs dir: \(docsDirURL)")
-			print("sqlURL location: \(sqlURL)")
-			
-			
-			// testing
-			let users = Table("users")
-			let id = Expression<Int64>("id")
-			let name = Expression<String?>("name")
-			let email = Expression<String>("email")
-
-			try db.run(users.create { t in
-				t.column(id, primaryKey: true)
-				t.column(name)
-				t.column(email, unique: true)
-			})
-
-			
-
-		}
-		catch
-		{
-			print("oops")
-		}
 	}
 
 	@IBAction func addDummyData(_ sender: Any)
