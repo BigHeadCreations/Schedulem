@@ -39,6 +39,11 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 		students.append(student3)
 		students.append(student4)
 		
+		dbMgr.addStudent(student1)
+		dbMgr.addStudent(student2)
+		dbMgr.addStudent(student3)
+		dbMgr.addStudent(student4)
+		
 		studentsTable.reloadData()
 
 	}
@@ -66,10 +71,7 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 			
 		case "sex":
 			return students[row].sex
-		
-		case "points":
-			return students[row].points
-			
+					
 		default:
 			return nil
 			

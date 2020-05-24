@@ -25,16 +25,17 @@ class Student : NSObject
 		}
 	}
 	
+	// Don't think I need to keep track of lastAssignment, lastHH, etc b/c I can compute these with DB
+	// Instead I'll prob add these here as arrays to show ALL of the past HH etc.
 	var name : String
 	var uuid : UUID
 	var sex : Sex = .male
 	var bibleStudyOK : Bool = false
 	var talkOK : Bool = false
-	var lastAssignment : Date? = nil
-	var nextAssignment : Date? = nil
-	var lastHH : Date? = nil
-	var nextHH : Date? = nil
-	var points : Int = 0
+//	var lastAssignment : Date? = nil
+//	var nextAssignment : Date? = nil
+//	var lastHH : Date? = nil
+//	var nextHH : Date? = nil
 	
 	// TIMO>> TODO: implement this later
 //	var blacklist : [Student?] = []
