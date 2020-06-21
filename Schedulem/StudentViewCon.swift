@@ -93,7 +93,7 @@ class StudentViewCon: NSViewController
 			
 			if(!editing)
 			{
-				vc.students.append(student)
+				dbMgr.addStudent(student)
 			}
 			
 			vc.studentsTable.reloadData()

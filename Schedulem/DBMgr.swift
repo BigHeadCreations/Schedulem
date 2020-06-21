@@ -9,10 +9,10 @@
 import Foundation
 import SQLite
 
-public class DBMgr
+public class DBMgr : NSObject
 {
+	@objc var students : [Student] = []
 	var connection : Connection! = nil
-	var students : [Student] = []
 	var assignments : [Assignment] = []
 	
 	// Student table columns
@@ -21,15 +21,15 @@ public class DBMgr
 		static let id = Expression<Int64>("id")
 		static let name = Expression<String>("name")
 		static let uuid = Expression<String>("uuid")
-		static let sex = Expression<Bool>("sex")
+		static let sex = Expression<String>("sex")
 		static let bibleStudyOk = Expression<Bool>("bible_study_ok")
 		static let talkOk = Expression<Bool?>("talk_ok")
 	}
 
 
-	public init()
+	public override init()
 	{
-		print("dbmgr has been inited")
+		super.init()
 		
 		do
 		{
@@ -52,7 +52,7 @@ public class DBMgr
 //		createAssignmentsTable()
 
 		// set up data
-		
+		refreshStudents()
 
 		dbMgr = self
 		
@@ -107,26 +107,98 @@ public class DBMgr
 	/// Add a student to the students table
 	func addStudent(_ student: Student)
 	{
-		let students = Table("Students")
+		let sTable = Table("Students")
 		do
 		{
-			try connection.run(students.insert(
+			try connection.run(sTable.insert(
 								SCols.name <- student.name,
 								SCols.uuid <- student.uuid.description,
-								SCols.sex <- true,
+								SCols.sex <- student.sex.description,
 								SCols.bibleStudyOk <- student.bibleStudyOK,
 								SCols.talkOk <- student.talkOK))
+								
+			// Is it best to add the student to my array manually, or remake the array by reading from DB?
+			// prob is best to manually add it to the array.
+			students.append(student)
+
+		}
+		catch
+		{
+			print("error adding a student: \(student)")
+		}
+	}
+	
+	func removeStudent(_ toRemove: Student)
+	{
+		var numRemoved = 0
 		
+		// remove from students array
+		for student in students
+		{
+			if(toRemove.uuid == student.uuid)
+			{
+				students.removeAll(where: { $0.uuid == toRemove.uuid })
+				numRemoved += 1
+			}
+		}
+		
+		if(numRemoved != 1)
+		{
+			print("ERROR: Didn't remove a single student from students array. numRemoved: \(numRemoved)")
+			return
+		}
+		
+		// remove from DB
+		let sTable = Table("Students")
+
+		let alice = sTable.filter(SCols.uuid == toRemove.uuid.uuidString)
+		do
+		{
+			try connection.run(alice.delete())
+		} catch
+		{
+			print("error deleting student: \(toRemove.name)")
+		}
+	}
+	
+	func refreshStudents()
+	{
+		// get all students from DB
+		let sTable = Table("Students")
+		var refreshedStudents : [Student] = []
+		do
+		{
+			for s in try connection.prepare(sTable)
+			{
+				// convert sex bool into Sex enum value
+				let mf = Sex.male
+				guard let studentUUID = UUID.init(uuidString: s[SCols.uuid]) else
+				{
+					// TODO: add a throw statement here later
+					print("can't convert uuid string from DB into UUID")
+					return
+				}
+				
+				// create student
+				let student = Student(name: s[SCols.name],
+								uuid: studentUUID,
+								sex: mf,
+								bibleStudyOk: s[SCols.bibleStudyOk],
+								talkOk: s[SCols.talkOk])
+								
+				refreshedStudents.append(student)
+			}
+		
+			students.removeAll(keepingCapacity: false)
+			students = refreshedStudents
+			
 		}
 		catch
 		{
 			print("error adding a student")
 		}
-	}
-	
-	func removeStudent(_ student: Student)
-	{
-	
+		
+		
 	}
 	
 	

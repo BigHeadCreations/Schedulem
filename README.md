@@ -1,13 +1,9 @@
 
-
-Move on to SQLite implementation
-
-- Delete button (done)
-- Edit button (done)
-- Add persistence layer for the data (SQLite) (sort of done)
-- Pull out students array from MainViewCon into its own Model obj (maybe called Appdata or DataMgr) (half done)
-- finish up other methods for removeStudent, addAssignment, removeAssignment
-- Hook up Assignments to the view
+- Student: 
+	- change talkOk from a Bool? to a Bool. Just but False for sisters
+	- Add bibleStudyOk and talkOk to the UI for adding a student
+- Start on Assignments
 - Figure out logic for assigning points and students to assignments
+
 
 

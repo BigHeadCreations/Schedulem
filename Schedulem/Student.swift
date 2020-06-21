@@ -10,20 +10,6 @@ import Cocoa
 
 class Student : NSObject
 {
-	enum Sex: CustomStringConvertible
-	{
-		case male
-		case female
-		
-		var description: String
-		{
-			switch self
-			{
-			case .male: return "male"
-			case .female: return "female"
-			}
-		}
-	}
 	
 	// Don't think I need to keep track of lastAssignment, lastHH, etc b/c I can compute these with DB
 	// Instead I'll prob add these here as arrays to show ALL of the past HH etc.
@@ -31,7 +17,7 @@ class Student : NSObject
 	var uuid : UUID
 	var sex : Sex = .male
 	var bibleStudyOK : Bool = false
-	var talkOK : Bool = false
+	var talkOK : Bool? = false
 //	var lastAssignment : Date? = nil
 //	var nextAssignment : Date? = nil
 //	var lastHH : Date? = nil
@@ -48,6 +34,15 @@ class Student : NSObject
 		
 		self.uuid = UUID.init()
 		
+	}
+	
+	init(name: String,  uuid: UUID, sex: Sex, bibleStudyOk: Bool, talkOk: Bool?)
+	{
+		self.name = name
+		self.uuid = uuid
+		self.sex = sex
+		self.bibleStudyOK = bibleStudyOk
+		self.talkOK = talkOk
 	}
 	
 }

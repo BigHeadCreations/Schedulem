@@ -19,6 +19,7 @@
 		1C6FAE6023DE1D1B0056CB69 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 1C6FAE5F23DE1D1B0056CB69 /* SQLite */; };
 		1CE2817F222DCE4A0047ACB1 /* StudentViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */; };
 		1CE28182222DCFBC0047ACB1 /* AssignmentViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */; };
+		1CFE1870249FBC7100123B6D /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE186F249FBC7100123B6D /* Sex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1C5DE314245F2713009FD9CD /* DBMgr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMgr.swift; sourceTree = "<group>"; };
 		1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewCon.swift; sourceTree = "<group>"; };
 		1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewCon.swift; sourceTree = "<group>"; };
+		1CFE186F249FBC7100123B6D /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				1CE28180222DCFBC0047ACB1 /* AssignmentViewCon.swift */,
 				1C5DE314245F2713009FD9CD /* DBMgr.swift */,
 				1C2D56A7222C295D0089B8F7 /* MainViewCon.swift */,
+				1CFE186F249FBC7100123B6D /* Sex.swift */,
 				1C2D56B5222C2A520089B8F7 /* Student.swift */,
 				1CE2817E222DCE4A0047ACB1 /* StudentViewCon.swift */,
 				1C233F4A244376B600608FFF /* WindowController.swift */,
@@ -172,6 +175,7 @@
 				1C2D56A6222C295D0089B8F7 /* AppDelegate.swift in Sources */,
 				1CE28182222DCFBC0047ACB1 /* AssignmentViewCon.swift in Sources */,
 				1CE2817F222DCE4A0047ACB1 /* StudentViewCon.swift in Sources */,
+				1CFE1870249FBC7100123B6D /* Sex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
