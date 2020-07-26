@@ -10,9 +10,11 @@ import Cocoa
 
 class StudentViewCon: NSViewController
 {
+	@IBOutlet var name : NSTextField!
 	@IBOutlet var maleBtn : NSButton!
 	@IBOutlet var femaleBtn : NSButton!
-	@IBOutlet var name : NSTextField!
+	@IBOutlet var studySwitch : NSSwitch!
+	@IBOutlet var talkSwitch : NSSwitch!
 	@IBOutlet var windowLbl : NSTextField!
 	var student : Student?
 	var editing : Bool = false
@@ -28,16 +30,11 @@ class StudentViewCon: NSViewController
 			windowLbl.stringValue = "Editing a Student..."
 			name.cell?.stringValue = student.name
 			
-			if(student.sex == .male)
-			{
-				maleBtn.state = NSControl.StateValue.on
-				femaleBtn.state = NSControl.StateValue.off
-			}
-			else
-			{
-				maleBtn.state = NSControl.StateValue.off
-				femaleBtn.state = NSControl.StateValue.on
-			}
+			maleBtn.state     = student.sex == .male ? NSControl.StateValue.on : NSControl.StateValue.off
+			femaleBtn.state   = student.sex == .female ? NSControl.StateValue.on : NSControl.StateValue.off
+			studySwitch.state = student.bibleStudyOK ? NSControl.StateValue.on : NSControl.StateValue.off
+			talkSwitch.state  = student.talkOK ? NSControl.StateValue.on : NSControl.StateValue.off
+			
 		}
 		else // creating a new student
 		{
@@ -47,6 +44,8 @@ class StudentViewCon: NSViewController
 			student = Student.init(name: "TESTING", sex: .male)
 			maleBtn.state = NSControl.StateValue.on
 			femaleBtn.state = NSControl.StateValue.off
+			studySwitch.state = NSControl.StateValue.off
+			talkSwitch.state = NSControl.StateValue.off
 		}
 	}
 	
@@ -91,7 +90,14 @@ class StudentViewCon: NSViewController
 				return
 			}
 			
-			if(!editing)
+			student.bibleStudyOK = studySwitch.state == NSControl.StateValue.on ? true : false
+			student.talkOK = talkSwitch.state == NSControl.StateValue.on ? true : false
+			
+			if(editing)
+			{
+				dbMgr.updateStudent(student)
+			}
+			else
 			{
 				dbMgr.addStudent(student)
 			}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -922,6 +922,9 @@
                                 <buttonCell key="cell" type="push" title="Add Student" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9aP-7L-Yz0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <segue destination="Rs7-3g-b7B" kind="sheet" identifier="mainToStudentSegue" id="p2A-Qr-iBn"/>
@@ -1016,7 +1019,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-J0-wNk">
-                                <rect key="frame" x="111" y="263" width="229" height="17"/>
+                                <rect key="frame" x="111" y="266" width="229" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Placeholder" id="sZp-lm-P3m">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -1024,12 +1027,40 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pbn-i7-yd7">
+                                <rect key="frame" x="118" y="112" width="51" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Talk ok:" id="4Nh-EM-fUm">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-qD-yeP">
+                                <rect key="frame" x="118" y="148" width="95" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Bible Study ok:" id="ikD-tj-Cln">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-6P-GuS">
+                                <rect key="frame" x="229" y="143" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </switch>
+                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="BD5-Du-zlx">
+                                <rect key="frame" x="229" y="107" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </switch>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="femaleBtn" destination="upI-Jc-eqA" id="G7a-7c-BZT"/>
                         <outlet property="maleBtn" destination="pDe-Nt-t0P" id="Mpm-jB-kKW"/>
                         <outlet property="name" destination="7T3-om-hu0" id="3Q8-0d-TUI"/>
+                        <outlet property="studySwitch" destination="pTa-6P-GuS" id="axm-pe-pFt"/>
+                        <outlet property="talkSwitch" destination="BD5-Du-zlx" id="HQp-LJ-qjY"/>
                         <outlet property="windowLbl" destination="5Xv-J0-wNk" id="eY3-me-a7e"/>
                     </connections>
                 </viewController>

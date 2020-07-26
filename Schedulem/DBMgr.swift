@@ -23,7 +23,7 @@ public class DBMgr : NSObject
 		static let uuid = Expression<String>("uuid")
 		static let sex = Expression<String>("sex")
 		static let bibleStudyOk = Expression<Bool>("bible_study_ok")
-		static let talkOk = Expression<Bool?>("talk_ok")
+		static let talkOk = Expression<Bool>("talk_ok")
 	}
 
 
@@ -128,6 +128,25 @@ public class DBMgr : NSObject
 		}
 	}
 	
+	func updateStudent(_ toEdit: Student)
+	{
+		let sTable = Table("Students")
+		do
+		{
+			let student = sTable.filter(SCols.uuid == toEdit.uuid.uuidString)
+			try connection.run(student.update(
+							SCols.name <- toEdit.name,
+							SCols.uuid <- toEdit.uuid.description,
+							SCols.sex <- toEdit.sex.description,
+							SCols.bibleStudyOk <- toEdit.bibleStudyOK,
+							SCols.talkOk <- toEdit.talkOK))
+
+		} catch
+		{
+			print("oops")
+		}
+	}
+	
 	func removeStudent(_ toRemove: Student)
 	{
 		var numRemoved = 0
@@ -151,10 +170,10 @@ public class DBMgr : NSObject
 		// remove from DB
 		let sTable = Table("Students")
 
-		let alice = sTable.filter(SCols.uuid == toRemove.uuid.uuidString)
+		let student = sTable.filter(SCols.uuid == toRemove.uuid.uuidString)
 		do
 		{
-			try connection.run(alice.delete())
+			try connection.run(student.delete())
 		} catch
 		{
 			print("error deleting student: \(toRemove.name)")
@@ -170,8 +189,17 @@ public class DBMgr : NSObject
 		{
 			for s in try connection.prepare(sTable)
 			{
-				// convert sex bool into Sex enum value
-				let mf = Sex.male
+				var mf = Sex.male
+				switch s[SCols.sex] {
+				case "male":
+					mf = Sex.male
+				case "female":
+					mf = Sex.female
+				default:
+					print("error in determing sex of Student in refreshStudents()")
+					return
+				}
+				
 				guard let studentUUID = UUID.init(uuidString: s[SCols.uuid]) else
 				{
 					// TODO: add a throw statement here later
