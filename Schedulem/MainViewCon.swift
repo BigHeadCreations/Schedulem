@@ -34,6 +34,12 @@ class MainViewCon: NSViewController, NSTableViewDataSource
 			
 		case "sex":
 			return dbMgr.students[row].sex
+		
+		case "bsOK":
+			return dbMgr.students[row].bibleStudyOK
+			
+		case "talkOK":
+			return dbMgr.students[row].talkOK
 					
 		default:
 			return nil
